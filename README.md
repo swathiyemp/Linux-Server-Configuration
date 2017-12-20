@@ -20,30 +20,30 @@ This project is about performing baseline installation of a Linux distribution o
 
 ## Installing  
 *       Install git with default specifications.
-*       Open git bash and then type **ssh ubuntu@34.232.46.54 -p 22 -i ~/.ssh/Lightsail Default Private Key.pem**
+*       Open git bash and then type ssh ubuntu@34.232.46.54 -p 22 -i ~/.ssh/Lightsail Default Private Key.pem
 *       You will be connected to your Instance.
-*       Update the software with this command **sudo apt-get update**
-*       Then type **sudo apt-get upgrade**
-*       Set the timezone to UTC by typing this in **sudo timedatectl set-timezone UTC** and then check it by **sudo timedatectl status**
+*       Update the software with this command sudo apt-get update
+*       Then type sudo apt-get upgrade
+*       Set the timezone to UTC by typing this in sudo timedatectl set-timezone UTC and then check it by sudo timedatectl status
 
 
 ###### Setting Up Security
-*      Set up the servers security by changing port with the following command **sudo nano /etc/ssh/sshd_config**
-*      Update the port to **2200** and then save it.
-*      Then restart the server by **sudo service ssh restart**
+*      Set up the servers security by changing port with the following command sudo nano /etc/ssh/sshd_config
+*      Update the port to 2200 and then save it.
+*      Then restart the server by sudo service ssh restart
 *      Configure the firewall by performing below steps.
-1.     First check the firewall status by  **sudo ufw status**
-1.     Then type **sudo ufw default deny incoming** to block all incoming requests
-1.     Then type **sudo ufw default allow outgoing** to allow all outgoing traffic
-1.     Then type in **sudo ufw allow 2200/tcp**  #SSH
-1.     **sudo ufw allow 80/tcp**  #HTTP
-1.     **sudo ufw allow 123/udp**  #NTP
-1.     Enable the firewall by **sudo ufw enable.**
-1.     Check the status by **sudo ufw status.**
+1.     First check the firewall status by  sudo ufw status
+1.     Then type sudo ufw default deny incoming to block all incoming requests
+1.     Then type sudo ufw default allow outgoing to allow all outgoing traffic
+1.     Then type in sudo ufw allow 2200/tcp  #SSH
+1.     sudo ufw allow 80/tcp  #HTTP
+1.     sudo ufw allow 123/udp  #NTP
+1.     Enable the firewall by sudo ufw enable
+1.     Check the status by sudo ufw status
 1.     In the networking tab of lightsail Instance perform the following steps.
 1.     Update ssh with custom tcp 2200
 1      Also add custom udp 123.
-1.     The server gets disconnected.Login from git bash with the following command **ssh ubuntu@34.232.46.54 -p 2200 -i ~/.ssh/Lightsail Default Private Key.pem**
+1.     The server gets disconnected.Login from git bash with the following command ssh ubuntu@34.232.46.54 -p 2200 -i ~/.ssh/Lightsail Default Private Key.pem
 
 
 ###### Creating a new user Grader
@@ -72,7 +72,7 @@ This project is about performing baseline installation of a Linux distribution o
 1. Create a new file itemcatalog.wsgi by typing in **nano /var/www/itemcatalog/itemcatalog.wsgi**
 1. Enter the following into the file and save it.
 
-            ```
+        ```
             def application(environ, start_response):
                  status = '200 OK'
                  output = b'Hello World!'
@@ -83,7 +83,7 @@ This project is about performing baseline installation of a Linux distribution o
                  start_response(status, response_headers)
 
              return [output]
-            ```
+             ```
 1.   Create the configuration file by typing **sudo nano /etc/apache2/sites-available/itemcatalog.conf** and type in the following
 
 ```
