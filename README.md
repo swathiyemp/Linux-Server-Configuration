@@ -20,7 +20,7 @@ This project is about performing baseline installation of a Linux distribution o
 
 ## Installing  
 *       Install git with default specifications.
-*       Open git bash and then type **ssh ubuntu@34.232.46.54 -p 22 -i ~/.ssh/Lightsail Default Private Key.pem.**
+*       Open git bash and then type __ssh ubuntu@34.232.46.54 -p 22 -i ~/.ssh/Lightsail Default Private Key.pem.__
 *       You will be connected to your Instance.
 *       Update the software with this command **sudo apt-get update.**
 *       Then type **sudo apt-get upgrade.**
