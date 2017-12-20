@@ -71,7 +71,9 @@ This project is about performing baseline installation of a Linux distribution o
 1. Change the ownership by typing in **sudo chown -R ubuntu /var/www/itemcatalog**
 1. Create a new file itemcatalog.wsgi by typing in **nano /var/www/itemcatalog/itemcatalog.wsgi**
 1. Enter the following into the file and save it.
-            ```def application(environ, start_response):
+
+            ```
+            def application(environ, start_response):
                  status = '200 OK'
                  output = b'Hello World!'
 
@@ -82,9 +84,10 @@ This project is about performing baseline installation of a Linux distribution o
 
              return [output]
             ```
-1.   Create the configuration file by typing **sudo nano /etc/apache2/sites-available/itemcatalog.conf** and tye in the following
+1.   Create the configuration file by typing **sudo nano /etc/apache2/sites-available/itemcatalog.conf** and type in the following
 
-```<VirtualHost *:80>
+```
+   <VirtualHost *:80>
     ServerName ec2-34-232-46-54.us-east-1a.compute.amazonaws.com
     ServerAlias 34.232.46.54
   
@@ -139,8 +142,8 @@ This project is about performing baseline installation of a Linux distribution o
 * Edit the WSGI file by **sudo nano /var/www/itemcatalog/itemcatalog.wsgi**
 and then paste these below.
 
-
-```import sys
+```
+import sys
 sys.path.insert(0, '/var/www/itemcatalog/itemcatalog')
 
 activate_this = '/var/www/itemcatalog/itemcatalog/venv/bin/activate_this.py'
