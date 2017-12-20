@@ -5,7 +5,7 @@ This project is about performing baseline installation of a Linux distribution o
 
 
 ## Getting Started        
-1. Create an account in amazon aws-- https://aws.amazon.com/.
+1. Create an account in amazon aws **https://aws.amazon.com/**
 2. Choose Launch a virtual Machine option and then choose Light sail Instance.
 3. Choose  Platform Linux and select OS only and then choose Ubuntu.
 4. Pick your Instance plan, name it and hit create.
@@ -72,19 +72,19 @@ This project is about performing baseline installation of a Linux distribution o
 1. Create a new file itemcatalog.wsgi by typing in **nano /var/www/itemcatalog/itemcatalog.wsgi**
 1. Enter the following into the file and save it.
 
-        ```
-            def application(environ, start_response):
-                 status = '200 OK'
-                 output = b'Hello World!'
-
-
-                 response_headers = [('Content-type', 'text/plain'),
+```
+   def application(environ, start_response):
+   status = '200 OK'
+   output = b'Hello World!'
+ 
+    response_headers = [('Content-type', 'text/plain'),
                         ('Content-Length', str(len(output)))]
-                 start_response(status, response_headers)
+    start_response(status, response_headers)
 
-             return [output]
-             ```
-1.   Create the configuration file by typing **sudo nano /etc/apache2/sites-available/itemcatalog.conf** and type in the following
+return [output]
+```
+    
+*   Create the configuration file by typing **sudo nano /etc/apache2/sites-available/itemcatalog.conf** and type in the following
 
 ```
    <VirtualHost *:80>
