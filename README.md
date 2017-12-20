@@ -42,7 +42,7 @@ This project is about performing baseline installation of a Linux distribution o
 1.     Check the status by sudo ufw status
 1.     In the networking tab of lightsail Instance perform the following steps.
 1.     Update ssh with custom tcp 2200
-1      Also add custom udp 123.
+1.     Also add custom udp 123.
 1.     The server gets disconnected.Login from git bash with the following command ssh ubuntu@34.232.46.54 -p 2200 -i ~/.ssh/Lightsail Default Private Key.pem
 
 
