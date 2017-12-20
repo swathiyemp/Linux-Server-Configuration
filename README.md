@@ -20,11 +20,11 @@ This project is about performing baseline installation of a Linux distribution o
 
 ## Installing  
 *       Install git with default specifications.
-*       Open git bash and then type __ssh ubuntu@34.232.46.54 -p 22 -i ~/.ssh/Lightsail Default Private Key.pem.__
+*       Open git bash and then type **ssh ubuntu@34.232.46.54 -p 22 -i ~/.ssh/Lightsail Default Private Key.pem**
 *       You will be connected to your Instance.
-*       Update the software with this command **sudo apt-get update.**
-*       Then type **sudo apt-get upgrade.**
-*       Set the timezone to UTC by typing this in **sudo timedatectl set-timezone UTC** and then check it by **sudo timedatectl status.**
+*       Update the software with this command **sudo apt-get update**
+*       Then type **sudo apt-get upgrade**
+*       Set the timezone to UTC by typing this in **sudo timedatectl set-timezone UTC** and then check it by **sudo timedatectl status**
 
 
 ###### Setting Up Security
@@ -71,7 +71,7 @@ This project is about performing baseline installation of a Linux distribution o
 1. Change the ownership by typing in **sudo chown -R ubuntu /var/www/itemcatalog**
 1. Create a new file itemcatalog.wsgi by typing in **nano /var/www/itemcatalog/itemcatalog.wsgi**
 1. Enter the following into the file and save it.
-            '''def application(environ, start_response):
+            ```def application(environ, start_response):
                  status = '200 OK'
                  output = b'Hello World!'
 
@@ -80,10 +80,11 @@ This project is about performing baseline installation of a Linux distribution o
                         ('Content-Length', str(len(output)))]
                  start_response(status, response_headers)
 
-             return [output]'''
+             return [output]
+            ```
 1.   Create the configuration file by typing **sudo nano /etc/apache2/sites-available/itemcatalog.conf** and tye in the following
 
-'''<VirtualHost *:80>
+```<VirtualHost *:80>
     ServerName ec2-34-232-46-54.us-east-1a.compute.amazonaws.com
     ServerAlias 34.232.46.54
   
@@ -104,10 +105,11 @@ This project is about performing baseline installation of a Linux distribution o
   
    ErrorLog ${APACHE_LOG_DIR}/error.log
   CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>'''
+</VirtualHost>
+```
 
-1.   Enable the virtual host by typing in **sudo a2ensite itemcatalog**
-1.   Restart the server by typing in **sudo apache2ctl restart**
+*   Enable the virtual host by typing in **sudo a2ensite itemcatalog**
+*   Restart the server by typing in **sudo apache2ctl restart**
 
 
 ###### Setting up PostgresSQL
@@ -138,14 +140,15 @@ This project is about performing baseline installation of a Linux distribution o
 and then paste these below.
 
 
-'''import sys
+```import sys
 sys.path.insert(0, '/var/www/itemcatalog/itemcatalog')
 
 activate_this = '/var/www/itemcatalog/itemcatalog/venv/bin/activate_this.py'
 with open(activate_this) as file_:
 exec(file_.read(), dict(__file__=activate_this))
 
-from itemcatalog import app as application'''
+from itemcatalog import app as application
+```
 
 ## Running The Application
 
