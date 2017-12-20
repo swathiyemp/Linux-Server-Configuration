@@ -1,10 +1,10 @@
-#Linux Server Configuration  
+# Linux Server Configuration  
 
 
 This project is about performing baseline installation of a Linux distribution on a virtual machine and preparing it to host Item Catalog Application with updates installed, securing it from a number of attack vectors and installing/configuring web and database servers. 
 
 
-##Getting Started        
+## Getting Started        
 1. Create an account in amazon aws-- https://aws.amazon.com/.
 2. Choose Launch a virtual Machine option and then choose Light sail Instance.
 3. Choose  Platform Linux and select OS only and then choose Ubuntu.
@@ -13,12 +13,12 @@ This project is about performing baseline installation of a Linux distribution o
 6. Save it in the directory .ssh and rename it like Lightsail Default Private Key.pem
 
 
-##Prerequisites
+## Prerequisites
 *      Download and install Git--https://git-scm.com/downloads
 *      Have an application like Item Catalog ready.
 
 
-##Installing  
+## Installing  
 *       Install git with default specifications.
 *       Open git bash and then type ssh ubuntu@34.232.46.54 -p 22 -i ~/.ssh/Lightsail Default Private Key.pem.
 *      You will be connected to your Instance.
@@ -27,7 +27,7 @@ This project is about performing baseline installation of a Linux distribution o
 *       Set the timezone to UTC by typing this in sudo timedatectl set-timezone UTC and then check it by sudo timedatectl status.
 
 
-######Setting Up Security
+###### Setting Up Security
 *      Set up the servers security by changing port with the following command sudo nano /etc/ssh/sshd_config
 *      Update the port to 2200 and then save it.
 *      Then restart the server by sudo service ssh restart
@@ -46,7 +46,7 @@ This project is about performing baseline installation of a Linux distribution o
 1.     The server gets disconnected.Login from git bash with the following command--ssh ubuntu@34.232.46.54 -p 2200 -i ~/.ssh/Lightsail Default Private Key.pem
 
 
-######Creating a new user Grader
+###### Creating a new user Grader
 * Type the following command to get started sudo adduser grader
 * Type sudo visudo
 * It opens /etc/sudoers file
@@ -62,7 +62,7 @@ This project is about performing baseline installation of a Linux distribution o
 * Look for the password authentication field and change it to no and then save it.
 
 
- ######Install the Apache
+ ###### Install the Apache
 
 1. Type in sudo apt-get install apache2 to install apache.
 1. Confirm it by going here--http://34.232.46.54:80
@@ -111,7 +111,7 @@ This project is about performing baseline installation of a Linux distribution o
 1.   Restart the server by typing in sudo apache2ctl restart
 
 
-######Setting up PostgresSQL
+###### Setting up PostgresSQL
 
 
 * Install the database using the following command sudo apt-get install postgresql.
@@ -120,14 +120,14 @@ This project is about performing baseline installation of a Linux distribution o
 * Type \q to exit
 
 
-######Cloning the repository
+###### Cloning the repository
 
 
 * Type cd /var/www/itemcatalog/
 * Clone it by typing git clone --single-branch https://github.com/swathiyemp/itemcatalog --branch master itemcatalog
 
 
-######Setting up python files
+###### Setting up python files
 * First install pip by sudo apt-get install python-pip
 * Set up virtual environment by sudo pip install virtualenv
 * Cd into  /var/www/itemcatalog/itemcatalog/
@@ -149,7 +149,7 @@ exec(file_.read(), dict(__file__=activate_this))
 
 from itemcatalog import app as application
 
-##Running The Application
+## Running The Application
 
 * Type in Restart Apache sudo apache2ctl restart
 * Goto http://34.232.46.54 in your browser to view your application.
